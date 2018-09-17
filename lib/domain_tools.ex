@@ -25,6 +25,8 @@ defmodule DomainTools do
   ## Examples
   iex> DomainTools.validate("someone.com")
   {:ok, %{domain: "someone.com", tld: "com", host: "someone", unicode: "someone.com"}}
+  iex> DomainTools.validate("geek.nz")
+  {:ok, %{domain: "geek.nz", tld: "geek.nz", host: "", unicode: "geek.nz"}}
   iex> DomainTools.validate("blog.someone.id.au")
   {:ok, %{domain: "blog.someone.id.au", host: "blog.someone", tld: "id.au", unicode: "blog.someone.id.au"}}
   iex> DomainTools.validate("zen.xn--unup4y")
@@ -62,7 +64,6 @@ defmodule DomainTools do
       domain
       |> to_ascii
       |> String.split(".")
-      |> Enum.drop(1)
       |> Enum.reverse()
       |> get_tld(suffixes)
 
