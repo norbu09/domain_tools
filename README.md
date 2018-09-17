@@ -6,12 +6,12 @@ Domain tools that I need constantly unified into one module. I have added so far
 
 These can easily be used just by validating a domain name like this:
 
-   ```elixir
-   iex> DomainTools.validate("zen.xn--unup4y")
-   {:ok, %{domain: "zen.xn--unup4y", host: "zen", tld: "xn--unup4y", unicode: "zen.游戏"}}
-   iex> DomainTools.validate("zen.游戏")
-   {:ok, %{domain: "zen.xn--unup4y", host: "zen", tld: "xn--unup4y", unicode: "zen.游戏"}}
-   ```
+```elixir
+iex> DomainTools.validate("zen.xn--unup4y")
+{:ok, %{domain: "zen.xn--unup4y", host: "zen", tld: "xn--unup4y", unicode: "zen.游戏"}}
+iex> DomainTools.validate("zen.游戏")
+{:ok, %{domain: "zen.xn--unup4y", host: "zen", tld: "xn--unup4y", unicode: "zen.游戏"}}
+```
 
 ## Installation
 

@@ -8,11 +8,24 @@ defmodule DomainTools.MixProject do
       elixir: "~> 1.6",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: package(),
+      source_url: "https://github.com/norbu09/domain_tools"
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
+  defp package do
+    [
+      description: "Domain tools for Elixir",
+      files: ["lib", "priv", "mix.exs", "README.md", ".formatter.exs"],
+      maintainers: [
+        "Lenz Gschwendtner"
+      ],
+      licenses: ["MIT"],
+      links: %{github: "https://github.com/norbu09/domain_tools"}
+    ]
+  end
+
   def application do
     [
       mod: {DomainTools.Application, []},
@@ -20,10 +33,10 @@ defmodule DomainTools.MixProject do
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:idna, ">= 6.0.0"}
+      {:idna, ">= 6.0.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev} 
     ]
   end
 end
